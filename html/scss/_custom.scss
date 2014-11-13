@@ -20,8 +20,8 @@ input[type="button"]{
 }
 
 body{
-	color: #000;
-	font: normal 14px/1.4 $body-fontfamily;
+	color: $text-black;
+	font: normal 16px/1.4 $body-fontfamily;
 	width: 100%;
 }
 a{
@@ -52,7 +52,7 @@ img{
 }
 .section{
 	width: 96%;
-	max-width: 960px;
+	max-width: 680px;
 	margin: 0 auto;
 	@extend .clearfix;
 	position: relative;
@@ -84,21 +84,150 @@ input{
 
 	}
 }
+.list{
+	li{
+		margin-bottom: 5px;
+	}
+}
+.list-links{
+	@extend .clearfix;
+	li{
+		float: left;
+	}
+	a{
+		display: block;
+		padding: 0 10px;
+		margin-left: -10px;
+	}
+}
+.text-wrap{
+	@extend .clearfix;
+	.img{
+		float: left;
+		margin-right: 10px;
+	}
+	.text{
+		overflow: hidden;
+	}
+}
+
 
 /*eglobal*/
-/*header*/
+/*section-header*/
+.section-header{
+	margin-top: 40px;
+	.des{
+		margin-top: 10px;
+		font-size: 16px;
+		text-align: center;
+		color: $text-gray;
+	}
+}
+.logo{
+	text-align: center;
+	font-weight: normal;
+	a{
+		color: #222;
+	}
+}
+
+/*section-header*/
+/*section-menu*/
+
+.section-menu{
+	margin-top: 30px;
+}
+.top-menu{
+	border-top: 1px solid $border-gray;
+	border-bottom: 1px solid $border-gray;
+}
+.menu{
+	@extend .clearfix;
+	text-align: center;
+	li{
+		display: inline-block;
+	}
+	a{
+		@include transition(all .2s ease);
+		display: block;
+		line-height: 40px;
+		color: $text-black;
+		font-size: 18px;
+		padding: 0 20px;
+		&:hover{
+			color: #fff;
+			background: $text-black;
+		}
+	}
+}
 
 
+/*section-menu*/
+/*section-page*/
 
-/*eheader*/
-/*body*/
+.section-page{
+	margin-top: 30px;
+	h2{
+		font-size: 18px;
+		color: $text-black;
+		margin-bottom: 15px;
+	}
+}
+.recent-activity{
+	margin-bottom: 30px;
+}
+.about-me{
+	margin-bottom: 30px;
+	.avatar{
+		width: 100px;
+		height: 100px;
+		img{
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+.recent-blog{
+	margin-bottom: 30px;
+}
+.recent-project{
+	margin-bottom: 30px;
+}
+.friend-links{
+	margin-bottom: 0;
+	@include link($text-gray);
+}
 
+.page-home{
+	color: $text-gray;
+}
 
+/*section-page*/
+/*section-footer*/
 
-/*ebody*/
-/*footer*/
+.section-footer{
+	margin-top: 40px;
+	color: $text-gray;
+	font-size: 14px;
+	.section{
+		padding: 20px 0;
+		border-top: 1px solid $border-gray;
+	}
+}
+.copyright{
+	float: left;
+}
+.social-links{
+	float: right;
+	@include link($text-gray);
+	li{
+		float: left;
+	}
+	a{
+		display: block;
+		padding: 0 10px;
+		margin-right: -10px;
+	}
+}
 
-
-
-/*efooter*/
-
+/*section-footer*/

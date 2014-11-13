@@ -1,5 +1,5 @@
-/* 
-Theme Name: Template
+/*!
+Theme Name: Jiangshui hexo
 Version: 1.0
 Author: Jiangshui
 Website: http://yujiangshui.com
@@ -184,16 +184,16 @@ figcaption {
   cursor: move;
 }
 
-.clearfix:before, .section:before, .form-row:before, .clearfix:after, .section:after, .form-row:after {
+.clearfix:before, .section:before, .form-row:before, .list-links:before, .text-wrap:before, .menu:before, .clearfix:after, .section:after, .form-row:after, .list-links:after, .text-wrap:after, .menu:after {
   content: "";
   display: table;
 }
 
-.clearfix:after, .section:after, .form-row:after {
+.clearfix:after, .section:after, .form-row:after, .list-links:after, .text-wrap:after, .menu:after {
   clear: both;
 }
 
-.clearfix, .section, .form-row {
+.clearfix, .section, .form-row, .list-links, .text-wrap, .menu {
   zoom: 1;
 }
 
@@ -341,8 +341,8 @@ input[type="button"] {
 }
 
 body {
-  color: #000;
-  font: normal 14px/1.4 "helvetica neue", tahoma, "hiragino sans gb", stheiti, "wenquanyi micro hei", \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, sans-serif;
+  color: #222222;
+  font: normal 16px/1.4 "helvetica neue", tahoma, "hiragino sans gb", stheiti, "wenquanyi micro hei", \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, sans-serif;
   width: 100%;
 }
 
@@ -381,7 +381,7 @@ img {
 
 .section {
   width: 96%;
-  max-width: 960px;
+  max-width: 680px;
   margin: 0 auto;
   position: relative;
 }
@@ -410,13 +410,165 @@ input {
   background: transparent;
 }
 
+.list li {
+  margin-bottom: 5px;
+}
+
+.list-links li {
+  float: left;
+}
+.list-links a {
+  display: block;
+  padding: 0 10px;
+  margin-left: -10px;
+}
+
+.text-wrap .img {
+  float: left;
+  margin-right: 10px;
+}
+.text-wrap .text {
+  overflow: hidden;
+}
+
 /*eglobal*/
-/*header*/
-/*eheader*/
-/*body*/
-/*ebody*/
-/*footer*/
-/*efooter*/
+/*section-header*/
+.section-header {
+  margin-top: 40px;
+}
+.section-header .des {
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center;
+  color: #6d7272;
+}
+
+.logo {
+  text-align: center;
+  font-weight: normal;
+}
+.logo a {
+  color: #222;
+}
+
+/*section-header*/
+/*section-menu*/
+.section-menu {
+  margin-top: 30px;
+}
+
+.top-menu {
+  border-top: 1px solid #bdc3c7;
+  border-bottom: 1px solid #bdc3c7;
+}
+
+.menu {
+  text-align: center;
+}
+.menu li {
+  display: inline-block;
+}
+.menu a {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  display: block;
+  line-height: 40px;
+  color: #222222;
+  font-size: 18px;
+  padding: 0 20px;
+}
+.menu a:hover {
+  color: #fff;
+  background: #222222;
+}
+
+/*section-menu*/
+/*section-page*/
+.section-page {
+  margin-top: 30px;
+}
+.section-page h2 {
+  font-size: 18px;
+  color: #222222;
+  margin-bottom: 15px;
+}
+
+.recent-activity {
+  margin-bottom: 30px;
+}
+
+.about-me {
+  margin-bottom: 30px;
+}
+.about-me .avatar {
+  width: 100px;
+  height: 100px;
+}
+.about-me .avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.recent-blog {
+  margin-bottom: 30px;
+}
+
+.recent-project {
+  margin-bottom: 30px;
+}
+
+.friend-links {
+  margin-bottom: 0;
+}
+.friend-links a {
+  color: #6d7272;
+}
+.friend-links a:hover {
+  color: #a0a5a5;
+}
+
+.page-home {
+  color: #6d7272;
+}
+
+/*section-page*/
+/*section-footer*/
+.section-footer {
+  margin-top: 40px;
+  color: #6d7272;
+  font-size: 14px;
+}
+.section-footer .section {
+  padding: 20px 0;
+  border-top: 1px solid #bdc3c7;
+}
+
+.copyright {
+  float: left;
+}
+
+.social-links {
+  float: right;
+}
+.social-links a {
+  color: #6d7272;
+}
+.social-links a:hover {
+  color: #a0a5a5;
+}
+.social-links li {
+  float: left;
+}
+.social-links a {
+  display: block;
+  padding: 0 10px;
+  margin-right: -10px;
+}
+
+/*section-footer*/
 /***********************************************************************************/
 /*                                  Media Queries                                  */
 /***********************************************************************************/
