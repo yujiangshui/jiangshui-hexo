@@ -35,7 +35,7 @@ $(window).scroll(function(){
 	}else{
 		$('.back-to-top').fadeOut(200);
 	}
-	
+
 });
 
 })(jQuery);
