@@ -267,10 +267,12 @@ input{
 /*section-main*/
 
 .section-main{
-	margin-top: 30px;
+	margin-top: 50px;
 }
 .blog-wrap{
-
+	h1{
+		font-size: 24px;
+	}
 }
 .blog-meta{
 	margin-bottom: 20px;
@@ -322,6 +324,14 @@ input{
 		float: left;
 	}
 }
-
+.list-blog{
+	h1{
+		@include link($text-black);
+		font-size: 24px;
+	}
+}
+.item-blog{
+	margin-bottom: 50px;
+}
 
 /*section-main*/
