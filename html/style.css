@@ -524,20 +524,20 @@ input {
 /*section-menu*/
 /*section-page*/
 .section-page {
-  margin-top: 30px;
+  margin-top: 50px;
 }
 .section-page h2 {
   font-size: 18px;
   color: #222222;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .recent-activity {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .about-me {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 .about-me .avatar {
   width: 100px;
@@ -549,11 +549,11 @@ input {
 }
 
 .recent-blog {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .recent-project {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .friend-links {
@@ -836,6 +836,13 @@ input {
 }
 
 /*section-works*/
+/*section-project*/
+.project-wrap {
+  color: #6d7272;
+  margin-bottom: 50px;
+}
+
+/*section-project*/
 /***********************************************************************************/
 /*                                  Media Queries                                  */
 /***********************************************************************************/
