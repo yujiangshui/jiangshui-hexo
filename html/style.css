@@ -191,16 +191,16 @@ figcaption {
   cursor: move;
 }
 
-.clearfix:before, .section:before, .form-row:before, .list-links:before, .text-wrap:before, .menu:before, .blog-meta:before, .blog-share:before, .clearfix:after, .section:after, .form-row:after, .list-links:after, .text-wrap:after, .menu:after, .blog-meta:after, .blog-share:after {
+.clearfix:before, .section:before, .form-row:before, .list-links:before, .text-wrap:before, .menu:before, .blog-meta:before, .blog-share:before, .timeline-item:before, .clearfix:after, .section:after, .form-row:after, .list-links:after, .text-wrap:after, .menu:after, .blog-meta:after, .blog-share:after, .timeline-item:after {
   content: "";
   display: table;
 }
 
-.clearfix:after, .section:after, .form-row:after, .list-links:after, .text-wrap:after, .menu:after, .blog-meta:after, .blog-share:after {
+.clearfix:after, .section:after, .form-row:after, .list-links:after, .text-wrap:after, .menu:after, .blog-meta:after, .blog-share:after, .timeline-item:after {
   clear: both;
 }
 
-.clearfix, .section, .form-row, .list-links, .text-wrap, .menu, .blog-meta, .blog-share {
+.clearfix, .section, .form-row, .list-links, .text-wrap, .menu, .blog-meta, .blog-share, .timeline-item {
   zoom: 1;
 }
 
@@ -236,15 +236,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .typo h1, .typo-h1 {
-  font-size: 1.8em;
+  font-size: 1.5em;
 }
 
 .typo h2, .typo-h2 {
-  font-size: 1.6em;
+  font-size: 1.4em;
 }
 
 .typo h3, .typo-h3 {
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 
 .typo h4, .typo-h4 {
@@ -692,6 +692,150 @@ input {
 }
 
 /*section-main*/
+/*section-works*/
+.section-works {
+  margin-top: 50px;
+}
+
+.work-des {
+  text-align: center;
+}
+
+.timeline {
+  position: relative;
+  padding-top: 4%;
+}
+.timeline .line {
+  position: absolute;
+  top: 0;
+  bottom: 80px;
+  left: 50%;
+  margin-left: -2px;
+  width: 4px;
+  background: #aaa;
+  z-index: 3;
+}
+.timeline .line .line-block {
+  background: #000;
+  height: 200px;
+  width: 4px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+.timeline .line .line-ftblock {
+  position: absolute;
+  width: 4px;
+}
+.timeline .line .ftblock1 {
+  height: 8px;
+  background: #000;
+  bottom: 0;
+}
+.timeline .line .ftblock2 {
+  height: 8px;
+  background: #fff;
+  bottom: 8px;
+}
+.timeline .line .ftblock3 {
+  height: 16px;
+  background: #000;
+  bottom: 16px;
+}
+.timeline .line .ftblock4 {
+  height: 16px;
+  background: #fff;
+  bottom: 32px;
+}
+
+.timeline-works {
+  margin-top: 30px;
+  padding-bottom: 40px;
+}
+
+.timeline-item {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  float: none;
+  margin-bottom: 4%;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  /*	opacity: 0;
+  	top: 100px;*/
+}
+.timeline-item.show {
+  opacity: 1;
+  top: 0;
+}
+.timeline-item.left .timeline-excerpt {
+  float: left;
+}
+.timeline-item.left .timeline-detail {
+  float: right;
+  left: -100px;
+}
+.timeline-item.right .timeline-detail {
+  float: left;
+  left: 100px;
+}
+.timeline-item.right .timeline-excerpt {
+  float: right;
+}
+.timeline-item:hover, .timeline-item.current {
+  background: #fafafa;
+}
+.timeline-item:hover .timeline-detail, .timeline-item.current .timeline-detail {
+  opacity: 1;
+  left: 0;
+}
+
+.timeline-excerpt {
+  width: 40%;
+  padding: 4%;
+  position: relative;
+  z-index: 4;
+}
+
+.timeline-detail {
+  width: 40%;
+  padding: 4%;
+  position: relative;
+  z-index: 4;
+  opacity: 0;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.timeline-time {
+  font-size: 26px;
+  height: 80px;
+  line-height: 80px;
+  background: #fff;
+  text-align: center;
+  position: relative;
+  z-index: 4;
+  margin-bottom: 4%;
+}
+.timeline-time.last {
+  position: relative;
+  bottom: -80px;
+}
+
+.need-work {
+  margin-top: 80px;
+  text-align: center;
+  color: #bdc3c7;
+}
+
+/*section-works*/
 /***********************************************************************************/
 /*                                  Media Queries                                  */
 /***********************************************************************************/
