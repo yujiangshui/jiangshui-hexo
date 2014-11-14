@@ -52,7 +52,7 @@ img{
 }
 .section{
 	width: 96%;
-	max-width: 680px;
+	max-width: 760px;
 	margin: 0 auto;
 	@extend .clearfix;
 	position: relative;
@@ -71,6 +71,39 @@ input{
 	box-sizing: border-box;
 	width: 100%;
 	padding: 0 8px;
+}
+.icon{
+	display: inline-block;
+	font-size: 24px;
+	margin: 0 5px;
+	span{
+		display: none;
+	}
+}
+.icon-weibo{
+	&:before{
+		content: "\e62c";
+	}
+}
+.icon-twitter{
+	&:before{
+		content: "\e7b9";
+	}
+}
+.icon-douban{
+	&:before{
+		content: "\f0002";
+	}
+}
+.icon-qzone{
+	&:before{
+		content: "\e63b";
+	}
+}
+.icon-backtotop{
+	&:before{
+		content: "\e626";
+	}
 }
 .btn{
 	display: inline-block;
@@ -207,7 +240,7 @@ input{
 
 .section-footer{
 	margin-top: 40px;
-	color: $text-gray;
+	color: $text-light;
 	font-size: 14px;
 	.section{
 		padding: 20px 0;
@@ -219,7 +252,7 @@ input{
 }
 .social-links{
 	float: right;
-	@include link($text-gray);
+	@include link($text-light,darken);
 	li{
 		float: left;
 	}
@@ -231,3 +264,64 @@ input{
 }
 
 /*section-footer*/
+/*section-main*/
+
+.section-main{
+	margin-top: 30px;
+}
+.blog-wrap{
+
+}
+.blog-meta{
+	margin-bottom: 20px;
+	font-size: 14px;
+	color: $text-light;
+	@extend .clearfix;
+	@include link($text-light,darken);
+	time{
+		float: left;
+		margin-right: 20px;
+	}
+}
+.blog-cats{
+	float: left;
+	margin-right: 20px;
+}
+.blog-tags{
+	margin-right: 20px;
+	float: left;
+	a{
+		&:before{
+			content: '# ';
+		}
+	}
+}
+.comments-wrap{
+	margin-top: 40px;
+	padding-top: 20px;
+	border-top: 1px solid $border-gray;
+}
+.blog-share{
+	@extend .clearfix;
+}
+.share-list{
+	float: right;
+	@include iconfont;
+	@include link($text-light,darken);
+	&:before{
+		content: 'share:';
+		font-size: 14px;
+		line-height: 33px;
+		margin-left: 10px;
+		margin-right: 10px;
+		text-transform: uppercase;
+		color: $text-light;
+		float: left;
+	}
+	li{
+		float: left;
+	}
+}
+
+
+/*section-main*/

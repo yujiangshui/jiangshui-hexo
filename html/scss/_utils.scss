@@ -175,12 +175,14 @@ $retina-suffix: '@2x';
 	margin-right: auto;
 }
 
-@mixin link($color:#2980b9,$hover:0.8){
+@mixin link($color:#2980b9,$hover:lighten){
 	a{
 		color: $color;
 		&:hover{
-			@if $hover == 0.8 {
+			@if $hover == lighten {
 				color: lighten($color,20%);
+      } @else if $hover == darken {
+        color: darken($color,20%);
 			} @else {
 				color: $hover;
 			}

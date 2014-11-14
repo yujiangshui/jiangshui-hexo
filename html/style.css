@@ -5,6 +5,13 @@ Author: Jiangshui
 Website: http://yujiangshui.com
 E-mail: yujiangshui@gmail.com
 */
+@font-face {
+  font-family: "iconfont";
+  src: url("fonts/iconfont.eot");
+  /* IE9*/
+  src: url("fonts/iconfont.eot?#iefix") format("embedded-opentype"), url("fonts/iconfont.woff") format("woff"), url("fonts/iconfont.ttf") format("truetype"), url("fonts/iconfont.svg#iconfont") format("svg");
+  /* iOS 4.1- */
+}
 /***********************************************************************************/
 /*                                  typo reset                                     */
 /***********************************************************************************/
@@ -184,16 +191,16 @@ figcaption {
   cursor: move;
 }
 
-.clearfix:before, .section:before, .form-row:before, .list-links:before, .text-wrap:before, .menu:before, .clearfix:after, .section:after, .form-row:after, .list-links:after, .text-wrap:after, .menu:after {
+.clearfix:before, .section:before, .form-row:before, .list-links:before, .text-wrap:before, .menu:before, .blog-meta:before, .blog-share:before, .clearfix:after, .section:after, .form-row:after, .list-links:after, .text-wrap:after, .menu:after, .blog-meta:after, .blog-share:after {
   content: "";
   display: table;
 }
 
-.clearfix:after, .section:after, .form-row:after, .list-links:after, .text-wrap:after, .menu:after {
+.clearfix:after, .section:after, .form-row:after, .list-links:after, .text-wrap:after, .menu:after, .blog-meta:after, .blog-share:after {
   clear: both;
 }
 
-.clearfix, .section, .form-row, .list-links, .text-wrap, .menu {
+.clearfix, .section, .form-row, .list-links, .text-wrap, .menu, .blog-meta, .blog-share {
   zoom: 1;
 }
 
@@ -381,7 +388,7 @@ img {
 
 .section {
   width: 96%;
-  max-width: 680px;
+  max-width: 760px;
   margin: 0 auto;
   position: relative;
 }
@@ -401,6 +408,35 @@ input {
   box-sizing: border-box;
   width: 100%;
   padding: 0 8px;
+}
+
+.icon {
+  display: inline-block;
+  font-size: 24px;
+  margin: 0 5px;
+}
+.icon span {
+  display: none;
+}
+
+.icon-weibo:before {
+  content: "\e62c";
+}
+
+.icon-twitter:before {
+  content: "\e7b9";
+}
+
+.icon-douban:before {
+  content: "\f0002";
+}
+
+.icon-qzone:before {
+  content: "\e63b";
+}
+
+.icon-backtotop:before {
+  content: "\e626";
 }
 
 .btn {
@@ -538,7 +574,7 @@ input {
 /*section-footer*/
 .section-footer {
   margin-top: 40px;
-  color: #6d7272;
+  color: #bdc3c7;
   font-size: 14px;
 }
 .section-footer .section {
@@ -554,10 +590,10 @@ input {
   float: right;
 }
 .social-links a {
-  color: #6d7272;
+  color: #bdc3c7;
 }
 .social-links a:hover {
-  color: #a0a5a5;
+  color: #869198;
 }
 .social-links li {
   float: left;
@@ -569,6 +605,75 @@ input {
 }
 
 /*section-footer*/
+/*section-main*/
+.section-main {
+  margin-top: 30px;
+}
+
+.blog-meta {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #bdc3c7;
+}
+.blog-meta a {
+  color: #bdc3c7;
+}
+.blog-meta a:hover {
+  color: #869198;
+}
+.blog-meta time {
+  float: left;
+  margin-right: 20px;
+}
+
+.blog-cats {
+  float: left;
+  margin-right: 20px;
+}
+
+.blog-tags {
+  margin-right: 20px;
+  float: left;
+}
+.blog-tags a:before {
+  content: '# ';
+}
+
+.comments-wrap {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #bdc3c7;
+}
+
+.share-list {
+  float: right;
+  font-family: "iconfont";
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.share-list a {
+  color: #bdc3c7;
+}
+.share-list a:hover {
+  color: #869198;
+}
+.share-list:before {
+  content: 'share:';
+  font-size: 14px;
+  line-height: 33px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-transform: uppercase;
+  color: #bdc3c7;
+  float: left;
+}
+.share-list li {
+  float: left;
+}
+
+/*section-main*/
 /***********************************************************************************/
 /*                                  Media Queries                                  */
 /***********************************************************************************/

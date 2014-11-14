@@ -6,7 +6,24 @@ $a-hover : #3498db;
 $border-gray : #bdc3c7;
 $text-gray : #6d7272;
 $text-black : #222;
+$text-light : #bdc3c7;
 
 
 //via: http://thx.github.io/cube/
 $body-fontfamily : 'helvetica neue',tahoma,'hiragino sans gb',stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif;
+
+@font-face {font-family: "iconfont";
+	src: url('fonts/iconfont.eot'); /* IE9*/
+	src: url('fonts/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('fonts/iconfont.woff') format('woff'), /* chrome、firefox */
+	url('fonts/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+	url('fonts/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+@mixin iconfont{
+	font-family:"iconfont";
+	font-style:normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-stroke-width: 0.2px;
+	-moz-osx-font-smoothing: grayscale;
+}
