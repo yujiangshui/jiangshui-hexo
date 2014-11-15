@@ -1,7 +1,9 @@
-;(function($) {
-
 // global var
 var G = {};
+var share;
+
+;(function($) {
+
 
 $(document).ready(function() {
 
@@ -27,7 +29,23 @@ $(document).ready(function() {
 
 // });
 
-
+	// share functions
+	share = {
+		url: encodeURIComponent(window.location.href),
+		title: encodeURIComponent(document.title),
+		weibo: function() {
+			window.open('http://service.weibo.com/share/share.php?url=' + this.url + '&title=' + this.title );
+		},
+		twitter: function() {
+			window.open('https://twitter.com/intent/tweet?text=' + this.title + '&url=' + this.url + '&via=yujiangshui' );
+		},
+		douban: function() {
+			window.open('http://www.douban.com/share/service?href=' + this.url + '&name=' + this.title );
+		},
+		qzone: function() {
+			window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + this.url + '&title=' + this.title );
+		}
+	};
 
 	// header nav transition
 	G.headerHeight = $('.section-header').outerHeight(true) + $('.section-menu').outerHeight(true) - $('.section-menu').height();
@@ -57,10 +75,10 @@ $(window).scroll(function(){
 
 	// header nav transition
 	var rate = scrollt / G.headerHeight;
-	if ( scrollt < G.headerHeight ) {
+	if ( scrollt < G.headerHeight && scrollt >= 0 ) {
 		$('.section-menu .section').css({'max-width': G.navWidth + G.expendLength * rate});
 		$('.section-menu').removeClass('fixed');
-	}else{
+	}else if( scrollt > G.headerHeight && scrollt >= 0 ) {
 		$('.section-menu').addClass('fixed');
 	}
 
