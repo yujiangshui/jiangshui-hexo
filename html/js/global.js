@@ -1,22 +1,41 @@
-// 实用函数，欢迎补充在 github 上
-var isMobile = {
-	android:     function() { return navigator.userAgent.match(/Android/i)     ? true : false; },
-	blackberry:  function() { return navigator.userAgent.match(/BlackBerry/i)  ? true : false; },
-	ios:         function() { return navigator.userAgent.match(/iPhone|iPod/i) ? true : false; },
-	windows:     function() { return navigator.userAgent.match(/IEMobile/i)    ? true : false; },
-	any:         function() { return (isMobile.android() || isMobile.blackberry() || isMobile.ios() || isMobile.windows()); }
-};
-
-
-//jQuery 功能代码编辑区
 ;(function($) {
+
+// global var
+var G = {};
 
 $(document).ready(function() {
 
-	jQuery('input[placeholder], textarea[placeholder]').placeholder();
 
-	$('a[href="#"]').click( function(e) { e.preventDefault(); return false; } );
 
+// ajax 预留 demo
+// $('.helo').on('click',function(e) {
+// 	e.preventDefault();
+// 	var url = $(this).attr('href');
+
+// 	$.ajax({
+// 		type: 'GET',
+// 		url: url
+// 	})
+// 	.done(function(data) {
+// 		var dataHtml = $(data).filter('.section-page').html();
+
+// 		$('.section-page').html(dataHtml);
+// 	})
+// 	.fail(function(e, txt) {
+// 		console.log(txt);
+// 	});
+
+// });
+
+
+
+	// header nav transition
+	G.headerHeight = $('.section-header').outerHeight(true) + $('.section-menu').outerHeight(true) - $('.section-menu').height();
+	G.navWidth = $('.section-menu .section').width();
+	G.windowWidth = $(window).width();
+	G.expendLength = ( G.windowWidth - G.navWidth );
+
+	// back to top
 	$('.back-to-top').click(function(event) {
 		$('html,body').animate({scrollTop:0}, 200);
 	});
@@ -36,7 +55,15 @@ $(window).scroll(function(){
 		$('.back-to-top').fadeOut(200);
 	}
 
+	// header nav transition
+	var rate = scrollt / G.headerHeight;
+	if ( scrollt < G.headerHeight ) {
+		$('.section-menu .section').css({'max-width': G.navWidth + G.expendLength * rate});
+		$('.section-menu').removeClass('fixed');
+	}else{
+		$('.section-menu').addClass('fixed');
+	}
+
 });
 
 })(jQuery);
-
