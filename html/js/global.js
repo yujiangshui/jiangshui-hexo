@@ -2,12 +2,32 @@
 var G = {};
 var share;
 
+G.fadeInByOrder = function(selector,interval,callback){
+    var i = 1,
+        length = $(selector+' .fade').length + 1,
+        intervala = interval || 100,
+        callbacka = callback || function(){ return; };
+
+    (function fadeInIt(){
+        if ( i < length ) {
+            $(selector+' .fade'+i).addClass('fade-in');
+            i++;
+            setTimeout( arguments.callee , intervala );
+            if ( i === length) {
+                callbacka();
+            }
+        }
+    })();
+};
+
 ;(function($) {
 
 
 $(document).ready(function() {
 
-
+	G.getWindowHeight = function() {
+		return $(window).height();
+	}
 
 // ajax 预留 demo
 // $('.helo').on('click',function(e) {
@@ -29,23 +49,8 @@ $(document).ready(function() {
 
 // });
 
-	// share functions
-	share = {
-		url: encodeURIComponent(window.location.href),
-		title: encodeURIComponent(document.title),
-		weibo: function() {
-			window.open('http://service.weibo.com/share/share.php?url=' + this.url + '&title=' + this.title );
-		},
-		twitter: function() {
-			window.open('https://twitter.com/intent/tweet?text=' + this.title + '&url=' + this.url + '&via=yujiangshui' );
-		},
-		douban: function() {
-			window.open('http://www.douban.com/share/service?href=' + this.url + '&name=' + this.title );
-		},
-		qzone: function() {
-			window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + this.url + '&title=' + this.title );
-		}
-	};
+
+
 
 	// header nav transition
 	G.headerHeight = $('.section-header').outerHeight(true) + $('.section-menu').outerHeight(true) - $('.section-menu').height();
@@ -58,6 +63,8 @@ $(document).ready(function() {
 		$('html,body').animate({scrollTop:0}, 200);
 	});
 
+
+
 });
 
 $(window).load(function() {
@@ -67,6 +74,8 @@ $(window).load(function() {
 $(window).scroll(function(){
 
 	var scrollt = $(window).scrollTop();
+
+	// back to top
 	if( scrollt > 200 ){
 		$('.back-to-top').fadeIn(200);
 	}else{
@@ -80,6 +89,13 @@ $(window).scroll(function(){
 		$('.section-menu').removeClass('fixed');
 	}else if( scrollt > G.headerHeight && scrollt >= 0 ) {
 		$('.section-menu').addClass('fixed');
+	}
+
+	// scroll load more
+	if ( $('.list-pagination').length ) {
+
+		var windowHeight = $(window).height();
+
 	}
 
 });
