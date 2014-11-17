@@ -27,7 +27,8 @@ $(document).ready(function() {
 
 	G.getWindowHeight = function() {
 		return $(window).height();
-	}
+	};
+	G.windowHeight = G.getWindowHeight();
 
 // ajax 预留 demo
 // $('.helo').on('click',function(e) {
@@ -69,6 +70,9 @@ $(document).ready(function() {
 
 $(window).load(function() {
 
+	// obtain true window height
+	G.windowHeight = G.getWindowHeight();
+
 });
 
 $(window).scroll(function(){
@@ -92,9 +96,40 @@ $(window).scroll(function(){
 	}
 
 	// scroll load more
+	var offset = 400;
 	if ( $('.list-pagination').length ) {
 
-		var windowHeight = $(window).height();
+		// scroll almost to bottom need load more
+		if( scrollt > ( G.windowHeight - offset ) ){
+
+			var url = $('.page-number.current').next('.page-number').attr('href');
+			var justOnce = false;
+			if ( !justOnce ) {
+
+				justOnce = true;
+
+				$.ajax({
+					type: 'GET',
+					url: url
+				})
+				.done(function(data) {
+					var listData = $("<div>").html(data).find('.list-blog').html();
+					var pageData = $("<div>").html(data).find('.list-pagination').html();
+					$('.list-blog').append(listData);
+					$('.list-pagination').html(pageData);
+
+					// get new data
+					justOnce = false;
+					G.windowHeight = G.getWindowHeight();
+
+				})
+				.fail(function(e, txt) {
+					console.log(txt);
+				});
+
+			}
+
+		}
 
 	}
 
