@@ -82,27 +82,32 @@ input{
 }
 .icon-weibo{
 	&:before{
-		content: "\e62c";
+		content: "\e7bd";
 	}
 }
 .icon-twitter{
 	&:before{
-		content: "\e7b9";
+		content: "\f000e";
 	}
 }
 .icon-douban{
 	&:before{
-		content: "\f0002";
+		content: "\e611";
 	}
 }
 .icon-qzone{
 	&:before{
-		content: "\e63b";
+		content: "\3437";
 	}
 }
 .icon-backtotop{
 	&:before{
 		content: "\e626";
+	}
+}
+.icon-loading{
+	&:before{
+		content: "\e64f";
 	}
 }
 .btn{
@@ -156,7 +161,30 @@ input{
 	color: $text-black;
 	display: none;
 }
-
+.loading{
+	position: fixed;
+	display: none;
+	left: 20px;
+	bottom: 20px;
+	font-size: 40px;
+	color: $text-light;
+	@include iconfont;
+	@include animation(loading 1s linear infinite);
+}
+@include keyframes(loading){
+	from {
+		-webkit-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
 /*eglobal*/
 /*section-header*/
 .section-header{
@@ -359,6 +387,19 @@ input{
 }
 .item-blog{
 	margin-bottom: 50px;
+}
+.list-pagination{
+	@include link($text-black,$text-gray);
+}
+.page-number{
+	padding: 10px 10px;
+	&.current{
+		color: $text-light;
+		cursor: default;
+		&:hover{
+			color: $text-light;
+		}
+	}
 }
 
 /*section-main*/

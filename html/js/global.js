@@ -50,8 +50,12 @@ $(document).ready(function() {
 
 // });
 
-
-
+	// global ajax event trigger loading animation
+	$(document).ajaxStart(function() {
+		$('.loading').show();
+	}).ajaxStop(function() {
+		$('.loading').hide();
+	});
 
 	// header nav transition
 	G.headerHeight = $('.section-header').outerHeight(true) + $('.section-menu').outerHeight(true) - $('.section-menu').height();
@@ -125,6 +129,7 @@ $(window).scroll(function(){
 
 					})
 					.fail(function(e, txt) {
+						justOnce = true;
 						console.log(txt);
 					});
 
