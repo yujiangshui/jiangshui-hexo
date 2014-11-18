@@ -1,0 +1,47 @@
+<div class="section-wrap section-page">
+	<div class="section">
+		<div class="page-home">
+			<div class="recent-activity">
+				<h2>最近在干啥</h2>
+				<ul class="list">
+					<li><a href="#">Reading</a>：最新作品：最新作品：最新作品：最新作品：最新作品：最新作品：最新作品：最新作品：最新作品：最新作品：最新作品</li>
+				</ul>
+			</div>
+			<div class="about-me">
+				<h2>关于</h2>
+				<div class="text-wrap">
+					<div class="text">
+						<p>前端工程师，12年开始从事前端开发相关。前端工程师，12年开始从事前端开发相关。</p>
+						<p>前端工程师，12年开始从事前端开发相关。</p>
+						<p>前端工程师，12年开始从事前端开发相关。前端工程师，12年开始从事前端开发相关。前端工程师，12年开始从事前端开发相关。前端工程师，12年开始从事前端开发相关。</p>
+					</div>
+				</div>
+			</div>
+			<div class="recent-blog">
+				<h2>最新文章 <a class="more" href="#">more</a></h2>
+				<ul class="list">
+				<% get_posts({'count':5}).each(function(post){ %>
+					<li><span class="blog-time"><%= date(post.date, 'YYYY/M/D') %> - </span><a href="<%= post.permalink %>"><%= post.title %></a></li>
+				<% }) %>
+				</ul>
+			</div>
+			<div class="recent-project">
+				<h2>最近项目 <a class="more" href="#">more</a></h2>
+				<ul class="list">
+					<li><a href="#">最近项目</a></li>
+					<li><a href="#">最近项目</a></li>
+					<li><a href="#">最近项目</a></li>
+					<li><a href="#">最近项目</a></li>
+				</ul>
+			</div>
+			<div class="friend-links">
+				<h2>朋友和高手们</h2>
+				<ul class="list-links">
+					<li><a href="#">友情链接</a></li>
+					<li><a href="#">友情链接</a></li>
+					<li><a href="#">友情链接</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

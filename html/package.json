@@ -1,12 +1,12 @@
 {
-  "name": "startone",
+  "name": "Jiangshui hexo",
   "version": "1.0.0",
-  "description": "themekool themem",
+  "description": "Jiangshui hexo theme",
   "keywords": [
-    "wordpress",
+    "hexo",
     "theme"
   ],
-  "author": "Mark & Jiangshui",
+  "author": "Jiangshui",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-concat": "^0.4.0",
