@@ -55,7 +55,11 @@ $(document).ready(function() {
 // });
 
 	// works time line
-
+	var topOffset = $('.section-menu').height();
+	var footerPadding = $('.section-footer').outerHeight(true) + 120 + $('.need-work').height();
+	G.timelineOffsetTop = $('.timeline-works').offset().top - topOffset;
+	$('.line-block').css({top:topOffset});
+	$('.need-work').css({'margin-top':(G.windowHeight/2) - footerPadding});
 
 	// global ajax event trigger loading animation
 	$(document).ajaxStart(function() {
@@ -115,10 +119,10 @@ $(window).scroll(function(){
 
 			var url = $('.page-number.current').next('.page-number').attr('href');
 			if ( url ) {
-				var justOnce = false;
-				if ( !justOnce ) {
+				var justOnce1 = false;
+				if ( !justOnce1 ) {
 
-					justOnce = true;
+					justOnce1 = true;
 
 					$.ajax({
 						type: 'GET',
@@ -131,12 +135,12 @@ $(window).scroll(function(){
 						$('.list-pagination').html(pageData);
 
 						// get new data
-						justOnce = false;
+						justOnce1 = false;
 						G.documentHeight = G.getDocumentHeight();
 
 					})
 					.fail(function(e, txt) {
-						justOnce = true;
+						justOnce1 = true;
 						console.log(txt);
 					});
 
@@ -145,6 +149,22 @@ $(window).scroll(function(){
 
 		}
 
+	}
+
+
+	// timeline
+	var lineBlockHeight = G.windowHeight / 2 - 60;
+	if ( scrollt > G.timelineOffsetTop && scrollt < ( G.timelineOffsetTop + lineBlockHeight ) ) {
+		// line block more height
+		$('.line-block').show().height( scrollt - G.timelineOffsetTop );
+	}else if ( scrollt >= ( G.timelineOffsetTop + lineBlockHeight ) ){
+		var justOnce2 = true;
+		if ( justOnce2 ) {
+			$('.line-block').height(lineBlockHeight);
+			justOnce2 = false;
+		}
+	}else if ( scrollt <= G.timelineOffsetTop ) {
+		$('.line-block').hide();
 	}
 
 });

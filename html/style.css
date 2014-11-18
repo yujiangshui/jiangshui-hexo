@@ -866,6 +866,7 @@ input {
   top: 0;
   left: 50%;
   margin-left: -2px;
+  display: none;
 }
 .timeline .line .line-ftblock {
   position: absolute;
@@ -894,7 +895,7 @@ input {
 
 .timeline-works {
   margin-top: 30px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 .timeline-item {
