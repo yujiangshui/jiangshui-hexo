@@ -19,6 +19,13 @@ G.fadeInByOrder = function(selector,interval,callback){
         }
     })();
 };
+G.getTLItemTops = function(){
+	var tempArr = [];
+	$('.timeline-item').each(function() {
+		tempArr.push($(this).offset().top);
+	});
+	return tempArr;
+}
 
 ;(function($) {
 
@@ -61,6 +68,8 @@ $(document).ready(function() {
 	$('.line-block').css({top:topOffset});
 	$('.need-work').css({'margin-top':(G.windowHeight/2) - footerPadding});
 
+	G.timelineItemOffsets = G.getTLItemTops();
+
 	// global ajax event trigger loading animation
 	$(document).ajaxStart(function() {
 		$('.loading').show();
@@ -87,6 +96,9 @@ $(window).load(function() {
 
 	// obtain true document height
 	G.documentHeight = G.getDocumentHeight();
+
+	// obtain timelineitem offset when images loaded
+	G.timelineItemOffsets = G.getTLItemTops();
 
 });
 
@@ -152,7 +164,7 @@ $(window).scroll(function(){
 	}
 
 
-	// timeline
+	// timeline line
 	var lineBlockHeight = G.windowHeight / 2 - 60;
 	if ( scrollt > G.timelineOffsetTop && scrollt < ( G.timelineOffsetTop + lineBlockHeight ) ) {
 		// line block more height
@@ -165,6 +177,24 @@ $(window).scroll(function(){
 		}
 	}else if ( scrollt <= G.timelineOffsetTop ) {
 		$('.line-block').hide();
+	}
+
+	// timeline heightlight item
+	if ( $('.timeline-item').length && scrollt > G.timelineOffsetTop ) {
+		var lineBottomOffset = $('.line-block').offset().top + $('.line-block').height();
+		for (var i = 0; i < G.timelineItemOffsets.length; i++) {
+			if ( lineBottomOffset > G.timelineItemOffsets[i] && lineBottomOffset < G.timelineItemOffsets[i+1]) {
+				$('.timeline-item').removeClass('current');
+				$('.timeline-item:eq('+i+')').addClass('current');
+			}else if ( lineBottomOffset < G.timelineItemOffsets[0] ){
+				// scroll to first one
+				$('.timeline-item').removeClass('current');
+			}else if ( lineBottomOffset > G.timelineItemOffsets[G.timelineItemOffsets.length-1] ){
+				// scroll to last one
+				$('.timeline-item').removeClass('current');
+				$('.timeline-item:eq('+ parseInt( G.timelineItemOffsets.length - 1 ) +')').addClass('current');
+			}
+		}
 	}
 
 });
