@@ -103,30 +103,32 @@ $(window).scroll(function(){
 		if( scrollt > ( G.windowHeight - offset ) ){
 
 			var url = $('.page-number.current').next('.page-number').attr('href');
-			var justOnce = false;
-			if ( !justOnce ) {
+			if ( url ) {
+				var justOnce = false;
+				if ( !justOnce ) {
 
-				justOnce = true;
+					justOnce = true;
 
-				$.ajax({
-					type: 'GET',
-					url: url
-				})
-				.done(function(data) {
-					var listData = $("<div>").html(data).find('.list-blog').html();
-					var pageData = $("<div>").html(data).find('.list-pagination').html();
-					$('.list-blog').append(listData);
-					$('.list-pagination').html(pageData);
+					$.ajax({
+						type: 'GET',
+						url: url
+					})
+					.done(function(data) {
+						var listData = $("<div>").html(data).find('.list-blog').html();
+						var pageData = $("<div>").html(data).find('.list-pagination').html();
+						$('.list-blog').append(listData);
+						$('.list-pagination').html(pageData);
 
-					// get new data
-					justOnce = false;
-					G.windowHeight = G.getWindowHeight();
+						// get new data
+						justOnce = false;
+						G.windowHeight = G.getWindowHeight();
 
-				})
-				.fail(function(e, txt) {
-					console.log(txt);
-				});
+					})
+					.fail(function(e, txt) {
+						console.log(txt);
+					});
 
+				}
 			}
 
 		}
