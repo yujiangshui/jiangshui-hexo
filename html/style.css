@@ -583,6 +583,18 @@ input {
     transform: rotate(360deg);
   }
 }
+.loading-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #e7e9ea;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+
 /*eglobal*/
 /*section-header*/
 .section-header {

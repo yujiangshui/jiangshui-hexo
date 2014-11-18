@@ -185,6 +185,16 @@ input{
 		transform: rotate(360deg);
 	}
 }
+.loading-overlay{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: $overlay;
+	@include opacity(.2);
+}
 /*eglobal*/
 /*section-header*/
 .section-header{

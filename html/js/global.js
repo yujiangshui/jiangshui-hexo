@@ -62,19 +62,25 @@ $(document).ready(function() {
 // });
 
 	// works time line
-	var topOffset = $('.section-menu').height();
-	var footerPadding = $('.section-footer').outerHeight(true) + 120 + $('.need-work').height();
-	G.timelineOffsetTop = $('.timeline-works').offset().top - topOffset;
-	$('.line-block').css({top:topOffset});
-	$('.need-work').css({'margin-top':(G.windowHeight/2) - footerPadding});
+	if( $('.timeline').length ){
 
-	G.timelineItemOffsets = G.getTLItemTops();
+		var topOffset = $('.section-menu').height();
+		var footerPadding = $('.section-footer').outerHeight(true) + 120 + $('.need-work').height();
+		G.timelineOffsetTop = $('.timeline-works').offset().top - topOffset;
+		$('.line-block').css({top:topOffset});
+		$('.need-work').css({'margin-top':(G.windowHeight/2) - footerPadding});
+
+		G.timelineItemOffsets = G.getTLItemTops();
+
+	}
 
 	// global ajax event trigger loading animation
 	$(document).ajaxStart(function() {
 		$('.loading').show();
+		$('.loading-overlay').stop(true).fadeIn(200);
 	}).ajaxStop(function() {
 		$('.loading').hide();
+		$('.loading-overlay').stop(true).fadeOut(200);
 	});
 
 	// header nav transition
@@ -98,7 +104,9 @@ $(window).load(function() {
 	G.documentHeight = G.getDocumentHeight();
 
 	// obtain timelineitem offset when images loaded
-	G.timelineItemOffsets = G.getTLItemTops();
+	if( $('.timeline').length ){
+		G.timelineItemOffsets = G.getTLItemTops();
+	}
 
 });
 
@@ -123,7 +131,7 @@ $(window).scroll(function(){
 	}
 
 	// scroll load more
-	var offset = 400;
+	var offset = 800;
 	if ( $('.list-pagination').length ) {
 
 		// scroll almost to bottom need load more
@@ -165,34 +173,37 @@ $(window).scroll(function(){
 
 
 	// timeline line
-	var lineBlockHeight = G.windowHeight / 2 - 60;
-	if ( scrollt > G.timelineOffsetTop && scrollt < ( G.timelineOffsetTop + lineBlockHeight ) ) {
-		// line block more height
-		$('.line-block').show().height( scrollt - G.timelineOffsetTop );
-	}else if ( scrollt >= ( G.timelineOffsetTop + lineBlockHeight ) ){
-		var justOnce2 = true;
-		if ( justOnce2 ) {
-			$('.line-block').height(lineBlockHeight);
-			justOnce2 = false;
-		}
-	}else if ( scrollt <= G.timelineOffsetTop ) {
-		$('.line-block').hide();
-	}
+	if( $('.timeline').length ){
 
-	// timeline heightlight item
-	if ( $('.timeline-item').length && scrollt > G.timelineOffsetTop ) {
-		var lineBottomOffset = $('.line-block').offset().top + $('.line-block').height();
-		for (var i = 0; i < G.timelineItemOffsets.length; i++) {
-			if ( lineBottomOffset > G.timelineItemOffsets[i] && lineBottomOffset < G.timelineItemOffsets[i+1]) {
-				$('.timeline-item').removeClass('current');
-				$('.timeline-item:eq('+i+')').addClass('current');
-			}else if ( lineBottomOffset < G.timelineItemOffsets[0] ){
-				// scroll to first one
-				$('.timeline-item').removeClass('current');
-			}else if ( lineBottomOffset > G.timelineItemOffsets[G.timelineItemOffsets.length-1] ){
-				// scroll to last one
-				$('.timeline-item').removeClass('current');
-				$('.timeline-item:eq('+ parseInt( G.timelineItemOffsets.length - 1 ) +')').addClass('current');
+		var lineBlockHeight = G.windowHeight / 2 - 60;
+		if ( scrollt > G.timelineOffsetTop && scrollt < ( G.timelineOffsetTop + lineBlockHeight ) ) {
+			// line block more height
+			$('.line-block').show().height( scrollt - G.timelineOffsetTop );
+		}else if ( scrollt >= ( G.timelineOffsetTop + lineBlockHeight ) ){
+			var justOnce2 = true;
+			if ( justOnce2 ) {
+				$('.line-block').height(lineBlockHeight);
+				justOnce2 = false;
+			}
+		}else if ( scrollt <= G.timelineOffsetTop ) {
+			$('.line-block').hide();
+		}
+
+		// timeline heightlight item
+		if ( $('.timeline-item').length && scrollt > G.timelineOffsetTop ) {
+			var lineBottomOffset = $('.line-block').offset().top + $('.line-block').height();
+			for (var i = 0; i < G.timelineItemOffsets.length; i++) {
+				if ( lineBottomOffset > G.timelineItemOffsets[i] && lineBottomOffset < G.timelineItemOffsets[i+1]) {
+					$('.timeline-item').removeClass('current');
+					$('.timeline-item:eq('+i+')').addClass('current');
+				}else if ( lineBottomOffset < G.timelineItemOffsets[0] ){
+					// scroll to first one
+					$('.timeline-item').removeClass('current');
+				}else if ( lineBottomOffset > G.timelineItemOffsets[G.timelineItemOffsets.length-1] ){
+					// scroll to last one
+					$('.timeline-item').removeClass('current');
+					$('.timeline-item:eq('+ parseInt( G.timelineItemOffsets.length - 1 ) +')').addClass('current');
+				}
 			}
 		}
 	}
