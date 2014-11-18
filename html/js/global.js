@@ -28,7 +28,11 @@ $(document).ready(function() {
 	G.getWindowHeight = function() {
 		return $(window).height();
 	};
+	G.getDocumentHeight = function() {
+		return $(document).height();
+	};
 	G.windowHeight = G.getWindowHeight();
+	G.documentHeight = G.getDocumentHeight();
 
 // ajax 预留 demo
 // $('.helo').on('click',function(e) {
@@ -49,6 +53,9 @@ $(document).ready(function() {
 // 	});
 
 // });
+
+	// works time line
+
 
 	// global ajax event trigger loading animation
 	$(document).ajaxStart(function() {
@@ -74,8 +81,8 @@ $(document).ready(function() {
 
 $(window).load(function() {
 
-	// obtain true window height
-	G.windowHeight = G.getWindowHeight();
+	// obtain true document height
+	G.documentHeight = G.getDocumentHeight();
 
 });
 
@@ -104,7 +111,7 @@ $(window).scroll(function(){
 	if ( $('.list-pagination').length ) {
 
 		// scroll almost to bottom need load more
-		if( scrollt > ( G.windowHeight - offset ) ){
+		if( scrollt > ( G.documentHeight - offset ) ){
 
 			var url = $('.page-number.current').next('.page-number').attr('href');
 			if ( url ) {
@@ -125,7 +132,7 @@ $(window).scroll(function(){
 
 						// get new data
 						justOnce = false;
-						G.windowHeight = G.getWindowHeight();
+						G.documentHeight = G.getDocumentHeight();
 
 					})
 					.fail(function(e, txt) {
