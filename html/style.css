@@ -980,6 +980,12 @@ input {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
+.timeline-detail p {
+  margin-bottom: 0;
+  display: table-cell;
+  vertical-align: middle;
+  height: 200px;
+}
 
 .timeline-time {
   font-size: 26px;
