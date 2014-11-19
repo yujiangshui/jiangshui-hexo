@@ -672,6 +672,11 @@ input {
   color: #222222;
   margin-bottom: 20px;
 }
+.section-page .more {
+  font-size: 14px;
+  color: #bdc3c7;
+  margin-left: 10px;
+}
 
 .recent-activity {
   margin-bottom: 50px;
@@ -692,6 +697,9 @@ input {
 .recent-blog {
   margin-bottom: 50px;
 }
+.recent-blog .blog-time {
+  color: #bdc3c7;
+}
 
 .recent-project {
   margin-bottom: 50px;
@@ -705,6 +713,9 @@ input {
 }
 .friend-links a:hover {
   color: #a0a5a5;
+}
+.friend-links a {
+  margin-bottom: 5px;
 }
 
 .page-home {

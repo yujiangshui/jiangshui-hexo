@@ -270,6 +270,11 @@ input{
 		color: $text-black;
 		margin-bottom: 20px;
 	}
+	.more{
+		font-size: 14px;
+		color: $text-light;
+		margin-left: 10px;
+	}
 }
 .recent-activity{
 	margin-bottom: 50px;
@@ -287,6 +292,9 @@ input{
 }
 .recent-blog{
 	margin-bottom: 50px;
+	.blog-time{
+		color: $text-light;
+	}
 }
 .recent-project{
 	margin-bottom: 50px;
@@ -294,6 +302,9 @@ input{
 .friend-links{
 	margin-bottom: 0;
 	@include link($text-gray);
+	a{
+		margin-bottom: 5px;
+	}
 }
 
 .page-home{
