@@ -25,7 +25,10 @@ G.getTLItemTops = function(){
 		tempArr.push($(this).offset().top);
 	});
 	return tempArr;
-}
+};
+
+G.justOnce1 = false;
+G.justOnce2 = true;
 
 ;(function($) {
 
@@ -40,26 +43,6 @@ $(document).ready(function() {
 	};
 	G.windowHeight = G.getWindowHeight();
 	G.documentHeight = G.getDocumentHeight();
-
-// ajax 预留 demo
-// $('.helo').on('click',function(e) {
-// 	e.preventDefault();
-// 	var url = $(this).attr('href');
-
-// 	$.ajax({
-// 		type: 'GET',
-// 		url: url
-// 	})
-// 	.done(function(data) {
-// 		var dataHtml = $(data).filter('.section-page').html();
-
-// 		$('.section-page').html(dataHtml);
-// 	})
-// 	.fail(function(e, txt) {
-// 		console.log(txt);
-// 	});
-
-// });
 
 	// works time line
 	if( $('.timeline').length ){
@@ -144,10 +127,8 @@ $(window).scroll(function(){
 
 			var url = $('.page-number.current').next('.page-number').attr('href');
 			if ( url ) {
-				var justOnce1 = false;
-				if ( !justOnce1 ) {
-
-					justOnce1 = true;
+				if ( !G.justOnce1 ) {
+					G.justOnce1 = true;
 
 					$.ajax({
 						type: 'GET',
@@ -160,12 +141,12 @@ $(window).scroll(function(){
 						$('.list-pagination').html(pageData);
 
 						// get new data
-						justOnce1 = false;
+						G.justOnce1 = false;
 						G.documentHeight = G.getDocumentHeight();
 
 					})
 					.fail(function(e, txt) {
-						justOnce1 = true;
+						G.justOnce1 = true;
 						console.log(txt);
 					});
 
@@ -185,10 +166,9 @@ $(window).scroll(function(){
 			// line block more height
 			$('.line-block').show().height( scrollt - G.timelineOffsetTop );
 		}else if ( scrollt >= ( G.timelineOffsetTop + lineBlockHeight ) ){
-			var justOnce2 = true;
-			if ( justOnce2 ) {
+			if ( G.justOnce2 ) {
 				$('.line-block').height(lineBlockHeight);
-				justOnce2 = false;
+				G.justOnce2 = false;
 			}
 		}else if ( scrollt <= G.timelineOffsetTop ) {
 			$('.line-block').hide();
